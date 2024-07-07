@@ -4,6 +4,7 @@ using CRUD_Entityframework.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRUD_Entityframework.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240707043803_newtables")]
+    partial class newtables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -149,32 +152,6 @@ namespace CRUD_Entityframework.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tblLanguage");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Hindi",
-                            Title = "Hindi"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "English",
-                            Title = "English"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Urdu",
-                            Title = "Urdu"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Panjabi",
-                            Title = "Panjabi"
-                        });
                 });
 
             modelBuilder.Entity("CRUD_Entityframework.Data.Book", b =>
